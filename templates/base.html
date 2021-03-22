@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+      {% block title %}{% endblock %}
+    </title>
+    
+    
+    <script src="/static/js/map.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default "></script>
+    
+
+<script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlG-q8UPU_vIs9ALxhK711OTdlmRw0Xsg&callback=initMap&libraries=&v=weekly"
+defer
+></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+    crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/css/site.css">
+   
+    {% block head %}
+  
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Raleway:ital@1&display=swap" rel="stylesheet">
+    {% endblock %}
+  </head>
+  <body>
+
+
+    
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f8a034;">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/"><b class="greens">Your Perfect Plant </b>Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/plants">Plants</a>
+        </li>
+        {% if session.get('user_id') %}
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/user-home">User Home</a>
+        </li>
+
+          {% else %}
+        <li class="nav-item"><a class="nav-link" href="/register-user">Create an account</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+          </li>
+          {% endif %}
+
+      </nav>
+
+
+    {% for msg in get_flashed_messages() %}
+    
+    <p class="flash-msg" id="userflash">
+      <hi>
+      {{ msg }}
+    </hi>
+    </p>
+  
+  {% endfor %}
+  
+  {% block body %}{% endblock %}
+    {% block after_body %}{% endblock %}
+
+
+
+  
+
+
+<!-- You need this in order to use JS-based components. Leave this at the bottom and code above it. -->
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

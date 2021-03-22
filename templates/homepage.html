@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Bekah McCurry{% endblock %}
+
+{% block body %}
+  <h1 id="title"><b id="find">find</b><b class="greens">Your Perfect Software Engineer</b></h1>
+
+  <!-- <h2>Navigation</h2> -->
+  <div class="row"> 
+    <div class="col-md-5">
+  <ul class="larger">
+    <li><a href="/plants">View all plants</a></li>
+    {% if not session.get('user_id') %}
+    {% endif %}
+  </ul>
+  </div>
+  
+    <div class="col-md-7">
+    <!-- <h1 id="quote">{{}}</h1> -->
+
+{% endblock %}
