@@ -6,10 +6,10 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 
-class Project(db.Model):
-    """A project"""
+# class Project(db.Model):
+#     """A project"""
 
-    __tablename__ = 'projects'
+#     __tablename__ = 'projects'
 
     # user_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     # fname = db.Column(db.String)
@@ -24,15 +24,15 @@ class Project(db.Model):
     #     return f'<User user_id={self.user_id} email={self.user_email}>'
 
 
-def connect_to_db(flask_app, db_uri='postgresql:///projects', echo=True): #///projects'... check this out
-    flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
-    flask_app.config['SQLALCHEMY_ECHO'] = echo
-    flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# def connect_to_db(flask_app, db_uri='postgresql:///projects', echo=True): #///projects'... check this out
+#     flask_app.config['SQLALCHEMY_DATABASE_URI'] = db_uri
+#     flask_app.config['SQLALCHEMY_ECHO'] = echo
+#     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-    db.app = flask_app
-    db.init_app(flask_app)
+#     db.app = flask_app
+#     db.init_app(flask_app)
 
-    print('Connected to the db!')
+#     print('Connected to the db!')
 
 
 if __name__ == '__main__':
@@ -42,4 +42,4 @@ if __name__ == '__main__':
     # too annoying; this will tell SQLAlchemy not to print out every
     # query it executes.
 
-    connect_to_db(app)
+    # connect_to_db(app)
